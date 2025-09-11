@@ -207,7 +207,8 @@ def check_for_updates():
         latest_version = response.text.strip()
 
         if latest_version > CURRENT_VERSION:
-            messagebox.showinfo("Обновления", f"Доступно обновление до версии {latest_version}!")
+            messagebox.showinfo("Обновления", f"Доступно обновление до новой версии JKeep {latest_version}!
+Вы можете обновиться, скачав новую версию https://github.com/krwg/JKeep_Desktop!")
         else:
             messagebox.showinfo("Обновления", "У вас последняя версия.")
     except requests.exceptions.RequestException as e:
