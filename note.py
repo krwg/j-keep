@@ -6,8 +6,6 @@ from PIL import Image, ImageTk
 import tkinter.messagebox as messagebox
 import requests
 
-#dev.krwg
-
 customtkinter.set_appearance_mode("dark")
 customtkinter.set_default_color_theme("blue")
 
@@ -106,8 +104,6 @@ def update_notes_list():
     except Exception as e:
         messagebox.showerror("Ошибка", f"Непредвиденная ошибка: {e}")
 
-#dev.krwg
-
 def create_note_container(formatted_data, row_index, note_id, pinned):
     try:
         container = customtkinter.CTkFrame(note_container_frame, fg_color="transparent", corner_radius=5, border_width=2, border_color="#555555")
@@ -202,7 +198,7 @@ def close_settings():
 
 def check_for_updates():
     try:
-        response = requests.get("https://raw.githubusercontent.com/krwg/JustKeep/refs/heads/master/version.txt", timeout=5)
+        response = requests.get("https://raw.githubusercontent.com/krwg/j-keep/master/version.txt", timeout=5)
         response.raise_for_status()
         latest_version = response.text.strip()
 
@@ -294,8 +290,6 @@ header.grid(row=0, column=0, columnspan=2, sticky="ew")
 header_label = customtkinter.CTkLabel(header, text="JustKeep", font=("Arial", 24))
 header_label.pack(pady=10, side=tk.LEFT, expand=True, fill="x")
 
-#dev.krwg
-
 try:
     image = Image.open("settings_icon.png")
     photo = ImageTk.PhotoImage(image)
@@ -352,8 +346,6 @@ for size_name in font_sizes:
     font_menu_main.add_command(label=size_name, command=lambda s=size_name: change_note_font_size(s))
 
 note_entry.bind("<Button-3>", lambda event, menu=font_menu_main: menu.post(event.x_root, event.y_root))
-
-#dev.krwg
 
 root.columnconfigure(0, weight=1)
 root.columnconfigure(1, weight=3)
